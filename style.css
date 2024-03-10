@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+body {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3BsYXNoJTIwc2NyZWVufGVufDB8fDB8fHww);
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.text {
+  position: absolute;
+  top: 60px;
+  background-size: 400% 400%;
+  background-image: linear-gradient(
+    -45deg,
+    #fc6c8f,
+    #ff2ced,
+    #ffb86c,
+    #2cccff,
+    #20e3b2,
+    #ffcc70,
+    #c850c0,
+    #4158d0
+  );
+  margin-bottom: 60px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  font-family: "Cookie", cursive;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient 2s ease alternate infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#cursor {
+  position: fixed;
+  top: -1006px;
+  left: -16px;
+  z-index: 1;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: #e0e1dd;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#cursor.-activated {
+  animation: fadeIn 7s ease-out forwards;
+}
+
+.tags-cloud {
+  position: fixed;
+  top: 60%;
+  transform: translateY(-55%);
+  /* top: calc(50% - 30vmin);
+  left: calc(50% - 30vmin); */
+  height: 86vmin;
+  width: 86vmin;
+  list-style: none;
+  opacity: 0;
+  /* background-color: red; */
+}
+
+.tags-cloud.-loaded {
+  animation: fadeIn 7s ease-out forwards;
+}
+
+.tags-cloud > .tag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 4vmin;
+  font-weight: bold;
+  transition: transform 0.1s linear, opacity 0.001s linear;
+  z-index: 100;
+}
+
+.tags-cloud > .tag > .wrap {
+  display: inline-block;
+  background-size: 400% 400%;
+  background-image: linear-gradient(
+    -45deg,
+    #fc6c8f,
+    #ff2ced,
+    #ffb86c,
+    #2cccff,
+    #20e3b2,
+    #ffcc70,
+    #c850c0,
+    #4158d0
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.tags-cloud img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
